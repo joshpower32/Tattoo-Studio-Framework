@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANTA — Custom Tattoo Studio | Hamilton, ON</title>
+    <meta name="description" content="Private custom tattoo studio on James Street North. Blackwork, fine line, colour realism, and traditional — free consults, custom-only work. 18+.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TattooParlor",
+      "name": "VANTA Tattoo Studio",
+      "priceRange": "$$",
+      "telephone": "+1-905-555-8268",
+      "email": "hello@vantatattoo.ca",
+      "address": { "@type": "PostalAddress", "streetAddress": "126 James St N", "addressLocality": "Hamilton", "addressRegion": "ON", "postalCode": "L8R 2K7", "addressCountry": "CA" }
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== Header / Nav ===== -->
+    <header class="site-header" id="top">
+        <div class="wrap nav">
+            <a href="#top" class="brand">
+                <svg class="brand-mark" aria-hidden="true" viewBox="0 0 100 100" width="20" height="20"><path d="M50 4 L60 34 L52 96 L48 96 L40 34 Z M44 40 L56 40" fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+                <span class="brand-name">VANTA</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="#styles">Styles</a>
+                <a href="#work">Our Work</a>
+                <a href="#artists">Artists</a>
+                <a href="#rates">Rates</a>
+                <a href="#visit">Visit</a>
+                <a href="#consult" class="nav-cta">Book a Consult</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Hero (three.js ink-dust drift behind) ===== -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="hero-fade" aria-hidden="true"></div>
+        <div class="wrap hero-inner">
+            <p class="eyebrow" data-fx>James Street North · Hamilton · 18+</p>
+            <h1 class="display" data-fx data-fx-delay="80">Done Once.<br><span class="crimson">Done Right.</span></h1>
+            <p class="lede" data-fx data-fx-delay="160">A private custom studio — no flash farm, no crowds. Blackwork, fine line, colour realism, and traditional, designed for you and tattooed properly.</p>
+            <div class="hero-actions" data-fx data-fx-delay="240">
+                <a class="btn btn-primary" href="#consult" data-magnetic>Book a Free Consult</a>
+                <a class="btn btn-ghost" href="#work" data-magnetic>See Our Work</a>
+            </div>
+        </div>
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Blackwork</span><span>·</span><span>Fine Line</span><span>·</span><span>Colour Realism</span><span>·</span><span>Traditional</span><span>·</span><span>Cover-Ups</span><span>·</span><span>Custom Only</span><span>·</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Stats band ===== -->
+    <section class="stats-band">
+        <div class="wrap stats-row">
+            <div class="stat" data-fx><strong><span data-count-to="5000">0</span>+</strong><span>Custom pieces</span></div>
+            <div class="stat" data-fx data-fx-delay="80"><strong><span data-count-to="12">0</span></strong><span>Years in Hamilton</span></div>
+            <div class="stat" data-fx data-fx-delay="160"><strong><span data-count-to="3">0</span></strong><span>Resident artists</span></div>
+            <div class="stat" data-fx data-fx-delay="240"><strong><span data-count-to="100">0</span>%</strong><span>Custom work</span></div>
+        </div>
+    </section>
+
+    <!-- ===== Styles ===== -->
+    <section id="styles" class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Styles</p>
+                <h2 class="display-sm">What We Do Best</h2>
+            </div>
+            <div class="styles-grid" id="stylesGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Work gallery ===== -->
+    <section id="work" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Portfolio</p>
+                <h2 class="display-sm">Recent Work</h2>
+                <p class="section-sub">Filter by style — every piece drawn for the person wearing it.</p>
+            </div>
+            <div class="work-filters" id="workFilters" aria-label="Style filters" data-fx></div>
+            <div class="work-grid" id="workGrid" data-fx></div>
+            <p class="work-empty" id="workEmpty" hidden>Nothing in that style yet — ask us at your consult.</p>
+        </div>
+    </section>
+
+    <!-- ===== Artists ===== -->
+    <section id="artists" class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Artists</p>
+                <h2 class="display-sm">Three Chairs, No Egos</h2>
+            </div>
+            <div class="artists-grid" id="artistsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Studio strip ===== -->
+    <section class="studio" aria-label="Inside the studio">
+        <div class="studio-img" id="studioImg" data-parallax></div>
+        <div class="wrap studio-copy">
+            <p class="eyebrow" data-fx>The Space</p>
+            <h2 class="display-sm" data-fx data-fx-delay="80">A Studio, Not a Parlour</h2>
+            <p data-fx data-fx-delay="160">Private rooms, hospital-grade sterilization, and one client per artist. Bring your headphones or bring your questions — it's your session.</p>
+        </div>
+    </section>
+
+    <!-- ===== Process ===== -->
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Process</p>
+                <h2 class="display-sm">From Idea to Healed</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" data-fx><span class="step-num">01</span><h3>Consult</h3><p>Free, 30 minutes, in studio or by video. Bring references and questions.</p></div>
+                <div class="step-card" data-fx data-fx-delay="80"><span class="step-num">02</span><h3>Design</h3><p>Drawn for you from scratch. One revision round included.</p></div>
+                <div class="step-card" data-fx data-fx-delay="160"><span class="step-num">03</span><h3>Session</h3><p>Private room, sterile setup, breaks whenever you need them.</p></div>
+                <div class="step-card" data-fx data-fx-delay="240"><span class="step-num">04</span><h3>Heal</h3><p>Aftercare kit included, plus a two-week check-in and free touch-up.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Rates ===== -->
+    <section id="rates" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Rates</p>
+                <h2 class="display-sm">Straightforward Pricing</h2>
+            </div>
+            <div class="rates-grid" id="ratesGrid"></div>
+            <p class="rates-fineprint" data-fx>$100 deposit books your session and comes off the final price · Studio minimum $120 · 18+ with government ID</p>
+        </div>
+    </section>
+
+    <!-- ===== Reviews ===== -->
+    <section class="section">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Clients</p>
+                <h2 class="display-sm">Healed &amp; Happy</h2>
+            </div>
+            <div class="reviews-grid" id="reviewsGrid"></div>
+        </div>
+    </section>
+
+    <!-- ===== Consult form ===== -->
+    <section id="consult" class="section section-tint">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Book a Consult</p>
+                <h2 class="display-sm">Tell Us What You're Thinking</h2>
+                <p class="section-sub">Consults are free. We reply within 48 hours with available times.</p>
+            </div>
+            <form id="consultForm" class="consult-form" data-fx>
+                <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="artist">Artist</label>
+                        <select id="artist" name="artist">
+                            <option value="">No preference</option>
+                            <option value="Mara Voss">Mara Voss — fine line</option>
+                            <option value="Dante Ruiz">Dante Ruiz — blackwork</option>
+                            <option value="Theo Marsh">Theo Marsh — colour</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="style">Style</label>
+                        <select id="style" name="style" required>
+                            <option value="">— Pick one —</option>
+                            <option value="Blackwork / geometric">Blackwork / geometric</option>
+                            <option value="Fine line">Fine line</option>
+                            <option value="Colour realism">Colour realism</option>
+                            <option value="Traditional">Traditional</option>
+                            <option value="Cover-up / rework">Cover-up / rework</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="placement">Placement</label>
+                        <input type="text" id="placement" name="placement" placeholder="e.g. left forearm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Rough Size</label>
+                        <select id="size" name="size" required>
+                            <option value="">— Pick one —</option>
+                            <option value="Small (under 8 cm)">Small (under 8 cm)</option>
+                            <option value="Medium (8–15 cm)">Medium (8–15 cm)</option>
+                            <option value="Large (15 cm+)">Large (15 cm+)</option>
+                            <option value="Sleeve / back piece">Sleeve / back piece</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idea">The Idea</label>
+                    <textarea id="idea" name="idea" rows="4" placeholder="What are we making? Meaning, imagery, anything you've saved for reference." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" data-magnetic>Request My Consult</button>
+                <p id="consultNote" class="form-note">18+ with government ID. Bring reference images to your consult.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== Visit / Hours / Map ===== -->
+    <section id="visit" class="section section-dark">
+        <div class="wrap">
+            <div class="section-head" data-fx>
+                <p class="eyebrow">Visit</p>
+                <h2 class="display-sm">Find the Black Door</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card" data-fx>
+                    <h3>Hours</h3>
+                    <p>
+                        Mon–Tue: Closed<br>
+                        Wed–Sat: 12 PM – 8 PM<br>
+                        Sun: 12 PM – 5 PM<br>
+                        Walk-in Fridays from 4 PM
+                    </p>
+                </div>
+                <div class="contact-card" data-fx data-fx-delay="80">
+                    <h3>Location</h3>
+                    <p>
+                        126 James St N<br>
+                        Hamilton, ON<br>
+                        L8R 2K7
+                    </p>
+                </div>
+                <div class="contact-card" data-fx data-fx-delay="160">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Phone:</strong> (905) 555-8268<br>
+                        <strong>Email:</strong> hello@vantatattoo.ca<br>
+                        <strong>Instagram:</strong> @vanta.tattoo
+                    </p>
+                </div>
+            </div>
+            <div class="map-embed" data-fx>
+                <div class="map-fallback" aria-hidden="true">
+                    <p><strong>VANTA Tattoo Studio</strong><br>126 James St N, Hamilton, ON</p>
+                    <a class="btn btn-ghost" href="https://www.google.com/maps?q=126+James+St+N,+Hamilton,+ON" target="_blank" rel="noopener">Open in Google Maps</a>
+                </div>
+                <iframe src="https://www.google.com/maps?q=126+James+St+N,+Hamilton,+ON&output=embed" title="Map to VANTA Tattoo Studio, 126 James St N, Hamilton" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-content">
+                <p>&copy; 2026 VANTA Tattoo Studio. All rights reserved.</p>
+                <p class="footer-credits">
+                    Built with <strong>PowerStudio</strong> Frameworks •
+                    Photos via <a href="https://pexels.com" target="_blank" rel="noopener">Pexels</a> •
+                    Forms via <a href="https://web3forms.com" target="_blank" rel="noopener">Web3Forms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Lightbox ===== -->
+    <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">✕</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous photo">❮</button>
+        <img id="lightboxImg" alt="">
+        <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next photo">❯</button>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- ===== Toast ===== -->
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+    <script src="fx.js"></script>
+    <script type="module" src="three-scene.js"></script>
+</body>
+</html>
